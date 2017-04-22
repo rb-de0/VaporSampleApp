@@ -1,0 +1,26 @@
+{
+    "server": "engine",
+    
+    "client": "engine",
+    
+    "console": "terminal",
+    
+    "log": "console",
+    
+    "hash": "crypto",
+    
+    "cipher": "crypto",
+    
+    "middleware": [
+        "error",
+        "date",
+        "file",
+        "cors",
+        "redis-sessions",
+        "persist-user"
+    ],
+    
+    "commands": [
+        "prepare"
+    ]
+}

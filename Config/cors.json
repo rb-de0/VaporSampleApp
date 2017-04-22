@@ -1,0 +1,6 @@
+{
+    "allowedOrigin": "http://localhost:8080",
+    "allowedMethods": ["get", "post", "option"],
+    "allowedHeaders": ["Content-Type"],
+    "cacheExpiration": 5
+}

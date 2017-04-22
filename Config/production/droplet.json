@@ -1,0 +1,7 @@
+{
+    "middleware": [
+        "error",
+        "date",
+        "cors"
+    ]
+}

@@ -1,0 +1,19 @@
+#extend("base")
+
+#export("content") {
+    <div>Content</div>
+
+    #equal(lhs, rhs) {
+        equal values
+    }
+
+    #loop(contents, "content") {
+        #(content.name)
+    }
+
+    #if(isLoggedIn) {
+        isLoggedIn
+    } ##else() {
+        Guest
+    }
+}

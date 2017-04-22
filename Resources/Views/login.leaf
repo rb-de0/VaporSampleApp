@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+
+    <body>
+
+        <form action="/login" method="post">
+            <input type="text" name="username" placeholder="username" size="20">
+            <input type="password" name="password" placeholder="password" size="20">
+            <button type="submit" name="action" value="login">Login</button>
+        </form>
+
+        <form action="/users" method="post">
+            <input type="text" name="username" placeholder="username" size="20">
+            <input type="password" name="password" placeholder="password" size="20">
+            <button type="submit" name="action" value="register">Register</button>
+        </form>
+
+    </body>
+</html>
