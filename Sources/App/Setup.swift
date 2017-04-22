@@ -3,6 +3,7 @@ import AuthProvider
 import FluentProvider
 import HTTP
 import MySQLProvider
+import LeafProvider
 import RedisProvider
 import Sessions
 
@@ -23,6 +24,7 @@ extension Config {
         
         try addProvider(FluentProvider.Provider.self)
         try addProvider(MySQLProvider.Provider.self)
+        try addProvider(LeafProvider.Provider.self)
         
         preparations += [
             User.self

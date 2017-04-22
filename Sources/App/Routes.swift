@@ -13,8 +13,27 @@ struct Routes: RouteCollection {
         builder.resource("/leaf", LeafController(view: view, hash: hash))
         builder.resource("/cors", CORSController())
         
-        builder.get("/") { request in
+        builder.get("/") { _ in
             return try self.view.make("contents.leaf")
+        }
+        
+        builder.get("/leaf") { _ in
+            
+            let contents: [Node] = [
+                ["name": "hoge"],
+                ["name": "bar"],
+                ["name": "foo"]
+            ]
+            
+            let context: [String: Node] = [
+                "title": "LeafTest",
+                "rhs": 0,
+                "lhs": 0,
+                "isLoggedIn": true,
+                "contents": .array(contents)
+            ]
+            
+            return try self.view.make("index.leaf", context)
         }
         
         builder.get("/auth") { request in

@@ -11,6 +11,8 @@
     
     "cipher": "crypto",
     
+    "view": "leaf",
+    
     "middleware": [
         "error",
         "date",
