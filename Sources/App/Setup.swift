@@ -2,6 +2,7 @@
 import AuthProvider
 import FluentProvider
 import HTTP
+import MySQLProvider
 import RedisProvider
 import Sessions
 
@@ -21,6 +22,7 @@ extension Config {
         addConfigurable(middleware: { _ in PersistMiddleware(User.self) }, name: "persist-user")
         
         try addProvider(FluentProvider.Provider.self)
+        try addProvider(MySQLProvider.Provider.self)
         
         preparations += [
             User.self

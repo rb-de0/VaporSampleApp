@@ -3,7 +3,7 @@ import AuthProvider
 import FluentProvider
 import Vapor
 
-final class User: Model {
+final class User: Model, Timestampable {
     
     let storage = Storage()
     let username: String

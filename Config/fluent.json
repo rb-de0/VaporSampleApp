@@ -1,5 +1,5 @@
 {
-    "driver": "memory",
+    "driver": "mysql",
     
     "//": "Naming convention to use for creating foreign id keys,",
     "//": "e.g., `user_id`",

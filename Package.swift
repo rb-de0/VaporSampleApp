@@ -13,7 +13,8 @@ let package = Package(
         .Package(url: "https://github.com/vapor/auth.git", Version(1, 0, 0, prereleaseIdentifiers: ["beta"])),
         .Package(url: "https://github.com/vapor/auth-provider.git", Version(1, 0, 0, prereleaseIdentifiers: ["beta"])),
         .Package(url: "https://github.com/vapor/leaf-provider.git", Version(1, 0, 0, prereleaseIdentifiers: ["beta"])),
-        .Package(url: "https://github.com/vapor/redis-provider.git", Version(2, 0, 0, prereleaseIdentifiers: ["beta"]))
+        .Package(url: "https://github.com/vapor/redis-provider.git", Version(2, 0, 0, prereleaseIdentifiers: ["beta"])),
+        .Package(url: "https://github.com/vapor/mysql-provider.git", Version(2, 0, 0, prereleaseIdentifiers: ["beta"]))
     ],
     exclude: [
         "Config",
