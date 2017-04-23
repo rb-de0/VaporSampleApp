@@ -17,7 +17,6 @@ final class UserController: ResourceRepresentable {
     }
     
     func store(request: Request) throws -> ResponseRepresentable {
-        
         let credential = try request.userNamePassword(hash: hash)
         try User(usernamePassWord: credential).save()
         return Response(redirect: "/login")

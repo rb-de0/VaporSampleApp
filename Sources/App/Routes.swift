@@ -1,4 +1,5 @@
 import Vapor
+import Fluent
 import HTTP
 
 struct Routes: RouteCollection {
@@ -38,6 +39,36 @@ struct Routes: RouteCollection {
         
         builder.get("/auth") { request in
             return try request.user().makeJSON()
+        }
+        
+        // MARK: - Fluent Tests
+        
+        builder.get("/all") { _ in
+            
+            return try Content.all().makeJSON()
+        }
+        
+        builder.get("/one") { _ in
+            
+            guard let response = try Content.find(5)?.makeJSON() else {
+                return Response(status: .notFound)
+            }
+            
+            return response
+        }
+        
+        builder.get("/filter") { _ in
+            
+            guard let response = try Content.makeQuery().filter("id", .equals, 3).first()?.makeJSON() else {
+                return Response(status: .notFound)
+            }
+
+            return response
+        }
+        
+        builder.get("/sort") { _ in
+
+            return try Content.makeQuery().sort("id", .descending).all().makeJSON()
         }
     }
 }

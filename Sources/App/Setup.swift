@@ -26,8 +26,11 @@ extension Config {
         try addProvider(MySQLProvider.Provider.self)
         try addProvider(LeafProvider.Provider.self)
         
-        preparations += [
-            User.self
+        let models: [Preparation.Type] = [
+            User.self,
+            Content.self
         ]
+        
+        preparations += models
     }
 }
