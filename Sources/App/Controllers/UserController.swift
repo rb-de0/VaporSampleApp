@@ -19,7 +19,7 @@ final class UserController: ResourceRepresentable {
     func store(request: Request) throws -> ResponseRepresentable {
         let credential = try request.userNamePassword(hash: hash)
         try User(usernamePassWord: credential).save()
-        return Response(redirect: "/login")
+        return Response(foundRedirect: "/login")
     }
 }
 
@@ -29,7 +29,7 @@ extension Request {
         
         guard let username = data["username"]?.string,
             let password = data["password"]?.string,
-            let hashedPass = try? hash.make(password).string() else {
+            let hashedPass = try? hash.make(password).makeString() else {
                 throw Abort.badRequest
         }
         

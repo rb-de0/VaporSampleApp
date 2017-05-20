@@ -9,16 +9,21 @@ import HTTP
 /// routes through the Droplet.
 
 class RouteTests: TestCase {
-    
     let drop = try! Droplet.testable()
     
-    func testJSON() throws {
-        
-        try drop.testResponse(to: .get, at: "cors")
+    func testHello() throws {
+        try drop
+            .testResponse(to: .get, at: "hello")
             .assertStatus(is: .ok)
-            .assertJSON("version", equals: "2.0")
+            .assertJSON("hello", equals: "world")
     }
-    
+
+    func testInfo() throws {
+        try drop
+            .testResponse(to: .get, at: "info")
+            .assertStatus(is: .ok)
+            .assertBody(contains: "0.0.0.0")
+    }
 }
 
 // MARK: Manifest
@@ -28,6 +33,7 @@ extension RouteTests {
     /// to function properly.
     /// See ./Tests/LinuxMain.swift for examples
     static let allTests = [
-        ("testJSON", testJSON)
+        ("testHello", testHello),
+        ("testInfo", testInfo),
     ]
 }

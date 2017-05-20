@@ -3,7 +3,7 @@ import Vapor
 
 final class CORSController: ResourceRepresentable {
     
-    func makeResource() -> Resource<Empty> {
+    func makeResource() -> Resource<String> {
         return Resource(
             index: index,
             store: store

@@ -12,7 +12,7 @@ final class LoginController: ResourceRepresentable {
         self.hash = hash
     }
     
-    func makeResource() -> Resource<Empty>{
+    func makeResource() -> Resource<String>{
         return Resource(
             index: index,
             store: store
@@ -27,6 +27,6 @@ final class LoginController: ResourceRepresentable {
         let credential = try request.userNamePassword(hash: hash)
         let user = try User.authenticate(credential)
         try user.persist(for: request)
-        return Response(redirect: "/login")
+        return Response(foundRedirect: "/login")
     }
 }

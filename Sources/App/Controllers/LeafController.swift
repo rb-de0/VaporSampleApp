@@ -9,7 +9,7 @@ final class LeafController: ResourceRepresentable {
         self.view = view
     }
     
-    func makeResource() -> Resource<Empty> {
+    func makeResource() -> Resource<String> {
         return Resource(
             index: index
         )
